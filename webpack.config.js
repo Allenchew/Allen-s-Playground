@@ -1,5 +1,5 @@
 const path = require('path');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // The entry point file described above
@@ -24,13 +24,13 @@ module.exports = {
         },
     },
     plugins:[
-      /*new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
           filename:'index.html',
-          title: 'Login Template',
+          title: 'Front Page Template',
           chunks:['index'],
           template:'./src/asset/index.html'
       }),
-        new HtmlWebpackPlugin({
+       /* new HtmlWebpackPlugin({
             filename:'mainpage.html',
             title:'Main Page',
             chunks:['mainpage'],
@@ -74,7 +74,7 @@ module.exports = {
                 use:["style-loader","css-loader"]
             },
             {
-                test:/\.(png|jpe?g|gif)$/i,
+                test:/\.(png|svg|jpg|jpeg|gif)$/i,
                 use:[
                     {
                         loader:'file-loader',
