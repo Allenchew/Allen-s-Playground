@@ -1,5 +1,6 @@
 .pagebase{
     background-color: black;
+    overflow: hidden;
 }
 
 .navbar{
@@ -34,12 +35,42 @@
     float: left;
 }
 
-.sidebar{
+.leftspacebar{
     width:30%;
     height: 90vh;
     float: left;
-    background-color: aliceblue;
+    margin:auto;
+    transition: 1.0s;
+}
+
+.leftspacebar.shrink{
+    width:0;
+    transition: 1.0s;
+}
+
+.sidebar{
+    width:0%;
+    height: 90vh;
+    float: left;
     margin: auto;
+    overflow: hidden;
+    text-align:left;
+    color: white;
+}
+
+.menu{
+    font-size:30px;
+    font-family: Garamond;
+}
+
+.menu:hover{
+    color:yellow;
+    transition:1.0s;
+    cursor:pointer;
+}
+
+#profile{
+    margin-top:45vh;
 }
 
 .profilePicture{
@@ -64,6 +95,23 @@
     overflow: hidden;
 }
 
+.rightsidebar{
+    width:45%;
+    height: 90vh;
+    transition: 1.0s;
+    float:left;
+    color: white;
+}
+
+.profilecontainer{
+    margin-top:40%;
+}
+
+.rightsidebar.shrink{
+    width: 0%;
+    overflow: hidden;
+    transition: 1.0s;
+}
 .footer{
     
 }

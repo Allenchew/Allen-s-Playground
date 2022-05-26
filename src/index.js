@@ -16,9 +16,19 @@ setTimeout(typeText, 1000);
 
 var nameField = document.getElementById("name");
 var positionField = document.getElementById("position");
+var profilebutton = document.getElementById("profile");
+
+var leftspacebar = document.getElementsByClassName("leftspacebar");
+var rightsidebar = document.getElementsByClassName("rightsidebar");
 
 var nameText = "Allen Chew";
 var nameTextIndex = 0;
+
+profilebutton.addEventListener("click",function(){
+    console.log("clicked");
+    leftspacebar[0].classList.toggle("shrink");
+    rightsidebar[0].classList.toggle("shrink");
+});
 
 function typeText()
 {
@@ -30,7 +40,16 @@ function typeText()
     }else{
         positionField.style.height = "40px";
         positionField.style.transition = "0.5s";
+        setTimeout(showMenu,1000);
     }
 
 }
+
+function showMenu()
+{
+    var sidebar = document.getElementsByClassName("sidebar");
+    sidebar[0].style.width = "15%";
+    sidebar[0].style.transition = "1.0s";
+}
+
 
