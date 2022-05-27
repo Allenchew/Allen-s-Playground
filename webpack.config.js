@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // The entry point file described above
   entry:{
-     index:'./src/index.js',
+      index:'./src/index.js',
+      developerblog:'./src/developerblog.js',
+      login:'./src/login.js',
     /*  mainpage:'./src/mainpage.js',
       loadPartsDetail:'./src/loadPartsDetail.js',
       userSettings:'./src/usersettings',
@@ -30,19 +32,19 @@ module.exports = {
           chunks:['index'],
           template:'./src/asset/index.html'
       }),
-       /* new HtmlWebpackPlugin({
-            filename:'mainpage.html',
-            title:'Main Page',
-            chunks:['mainpage'],
-            template:'./src/asset/mainpage.html'
+        new HtmlWebpackPlugin({
+            filename:'developerblog.html',
+            title:'Developer Blog',
+            chunks:['developerblog'],
+            template:'./src/asset/developerblog.html'
         }),
         new HtmlWebpackPlugin({
-            filename:'partsdetail.html',
-            title:'parsDetail',
-            chunks:['loadPartsDetail'],
-            template:'./src/asset/partsdetail.html',
+            filename:'login.html',
+            title:'Login',
+            chunks:['login'],
+            template:'./src/asset/login.html',
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename:'usersettings.html',
             title:'usersettings',
             chunks:['userSettings'],

@@ -1,0 +1,48 @@
+.pagebase{
+    background-color: black;
+    overflow: hidden;
+}
+
+.topbar{
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 99%;
+    height: 8vh;
+    margin: auto;
+}
+
+.pagetitle{
+    float:left;
+    color:white;
+    font-family: Garamond;
+    font-size: 3vw;
+    margin: auto;
+}
+
+#loginbutton{
+    float:right;
+    color: white;
+    font-size:1vw;
+}
+#loginbutton:hover{
+    color: lightblue;
+    transition: 1.0s;
+}
+.contentcontainer{
+    height: 95vh;
+    width: 60%;
+    margin: auto;
+    margin-top:5%;
+}
+.post{
+    margin: auto;
+    text-align: center;
+}
+.title{
+    color: white;
+}
+.content{
+    color:white;
+    text-align: left;
+}
