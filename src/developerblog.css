@@ -1,6 +1,11 @@
 .pagebase{
     background-color: black;
-    overflow: hidden;
+}
+
+.pagebase::-webkit-scrollbar{
+    width:3%;
+    border-radius:50%;
+    background-color: grey;
 }
 
 .topbar{
@@ -10,6 +15,7 @@
     width: 99%;
     height: 8vh;
     margin: auto;
+    background-color: black;
 }
 
 .pagetitle{
@@ -24,13 +30,22 @@
     float:right;
     color: white;
     font-size:1vw;
+    cursor: pointer;
 }
 #loginbutton:hover{
     color: lightblue;
     transition: 1.0s;
 }
+
+.editorfunction{
+  text-align: center;
+  float:left;
+  width:20%;
+  margin: auto;
+  height: 95vh;  
+}
+
 .contentcontainer{
-    height: 95vh;
     width: 60%;
     margin: auto;
     margin-top:5%;
@@ -45,4 +60,26 @@
 .content{
     color:white;
     text-align: left;
+}
+
+#composecontainer{
+    width: 60%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.composetitle{
+    width: 100%;
+}
+.composetextfield{
+    resize:none;
+    width: 100%;
+    height: 30vh;
+    border-radius: 10px;
+}
+
+.composebutton{
+    float: right;
+    margin: auto;
 }
