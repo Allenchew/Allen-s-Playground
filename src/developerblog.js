@@ -73,16 +73,15 @@ function loadOwnerFunction()
   composeButton.innerHTML = "Compose";
   composeButton.className = "composebutton";
   const todayDate = new Date();
-  var todayDatetoString = todayDate.getDate()+"-"+todayDate.getMonth()+"-"+todayDate.getFullYear();
-
+  var todayDatetoString = todayDate.getDate()+"-"+(todayDate.getMonth()+1)+"-"+todayDate.getFullYear();
+  
   composeButton.addEventListener("click",function(){
-      console.log(composeTitle.value);
-      console.log(composeTextfield.value);
       if(composeTitle.value != "" && composeTextfield.value != ""){
+        var convertedComposeContent = composeTextfield.value.replace(/\n\r?/g, '<br />');
         var postData = {
             "title":composeTitle.value,
             "date":todayDatetoString,
-            "content":composeTextfield.value
+            "content":convertedComposeContent
         }
         uploadPost(postData);
       }else{

@@ -59,7 +59,7 @@
 }
 
 .menu{
-    font-size:30px;
+    font-size:2vw;
     font-family: Garamond;
 }
 
@@ -85,10 +85,10 @@
 #name{
     color: white;
     text-align: center;
-    font-size: 50px;
+    font-size: 3vw;
 }
 #position{
-    font-size: 30px;
+    font-size: 2vw;
     color: white;
     text-align: center;
     height: 0px;
@@ -113,5 +113,15 @@
     transition: 1.0s;
 }
 .footer{
-    
+    color: white;
+    position: fixed;
+    bottom: 1%;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5vw;
+    transition: 0.5s;
+}
+.footer.shrink{
+    font-size: 0vw;
+    transition: 0.5s;
 }
