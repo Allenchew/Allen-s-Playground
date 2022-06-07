@@ -53,6 +53,11 @@
 .post{
     margin: auto;
     text-align: center;
+    border: solid 0.1vw;
+    border-color: white;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 0.5vw;
 }
 .title{
     color: white;
@@ -82,4 +87,16 @@
 .composebutton{
     float: right;
     margin: auto;
+}
+code{
+    overflow-x: auto;
+    background-color: lightgray;
+    color: black;
+    padding: 1vw;
+    margin: auto;
+    margin-bottom: 3vw;
+    border-radius: 0.1vw;
+    height: auto;
+    width: 80%;
+    display: block;
 }
