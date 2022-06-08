@@ -86,48 +86,43 @@ function processTextContent(contentText,postContent)
     var newCodeBlock = document.createElement("code");
     newPre.appendChild(newCodeBlock);
     var insertedHead = false;
-   console.log(separatedContent);
     for(var i =0;i<separatedContent.length;i++)
     {
-        if(insertedHead)
+        if(i > 0)
         {
-            
-        }else
-        {
-            if(i > 0){
+            if(!insertedHead)
+            {
                 if(separatedContent[i-1].trim() == "" && separatedContent[i].search("    ") == 0)
                 {
                     insertedHead = true;
                     newCodeBlock.innerHTML += separatedContent[i] + "<br>";
+                }else
+                {
+                    contentText.innerHTML += separatedContent[i] + "<br>";
                 }
-            }else{
-                
+            }else
+            {
+                if(separatedContent[i].trim() == "" || separatedContent[i].search("    ") == 0)
+                {
+                    newCodeBlock.innerHTML += separatedContent[i] + "<br>";
+                }else
+                {
+                    contentText.innerHTML += "<pre>"+newPre.innerHTML+"</pre><br>" + separatedContent[i] + "<br>";
+                    newCodeBlock.innerHTML = "";
+                    insertedHead = false;
+                }
             }
-        }
-        
-        
-        if(i>0 && !insertedHead){
             
-        }else{
-            
-        }
-        
-        if(insertedHead && separatedContent[i].search("    ") != 0)
+        }else
         {
-            //contentText.innerHTML += codeBlockTail + separatedContent[i] + "<br>";
-            contentText.innerHTML += "<pre>"+newPre.innerHTML+"</pre><br>" + separatedContent[i] + "<br>";
-            newCodeBlock.innerHTML = "";
-            
-            insertedHead = false;
-        }else if(insertedHead && separatedContent[i].search("    ") == 0){
-            
-            //contentText.innerHTML += separatedContent[i] + codeBlockTail;
-        }
-        else{
             contentText.innerHTML += separatedContent[i] + "<br>";
         }
-        
-        
+    }
+    if(insertedHead)
+    {
+        contentText.innerHTML += "<pre>"+newPre.innerHTML+"</pre><br>";
+        newCodeBlock.innerHTML = "";
+        insertedHead = false;
     }
 }
 
