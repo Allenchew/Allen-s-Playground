@@ -24,6 +24,12 @@
     font-family: Garamond;
     font-size: 3vw;
     margin: auto;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.pagetitle:hover{
+    color: deepskyblue;
+    transition: 0.5s;
 }
 
 #loginbutton{
@@ -62,6 +68,8 @@
 }
 .title{
     color: white;
+    border-bottom: solid 0.2vw;
+    border-bottom-color:red; 
 }
 .content{
     color:white;
@@ -89,6 +97,14 @@
     float: right;
     margin: auto;
 }
+
+.buttonbar{
+    text-align: right;
+    width: 80%;
+    margin: auto;
+}
+
+
 code{
     overflow-x: auto;
     background-color: lightgray;

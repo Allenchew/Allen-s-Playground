@@ -17,10 +17,10 @@ signinbutton.addEventListener("click",function(){
     console.log("sign in success");
     const users = userCredential.user;
     onAuthStateChanged(auth,(user)=>{
-      window.location.assign("developerblog.html");
+      window.location.replace("developerblog.html");
     });
   }).catch((error) => {
-    window.location.assign("developerblog.html?YouAreNotOwner");
+    window.location.replace("developerblog.html?YouAreNotOwner");
     const errorCode = error.code;
     const errorMessage = error.message;
   });

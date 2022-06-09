@@ -2,6 +2,7 @@ import "./developerblog.css";
 import {getAuth , onAuthStateChanged} from "firebase/auth";
 import {getDatabase,ref as databaseRef,child,get,set,push} from "firebase/database";
 import {InitializeConfigApp} from "./importFirebase.js";
+import copyImage from "./asset/file-copy-line.png";
 
 var app;
 InitializeConfigApp(app);
@@ -20,6 +21,8 @@ var getAllParagraph = document.getElementsByTagName("p");
 var codeBlockHead = "<br><pre class='line-numbers'><code>";
 var codeBlockTail = "</code></pre><br>";
 
+var blogTitle = document.getElementsByClassName("pagetitle");
+
 
 onAuthStateChanged(auth,(user)=>{
   loadPosts();
@@ -32,6 +35,10 @@ onAuthStateChanged(auth,(user)=>{
 
 loginButton.addEventListener("click",function(){
   window.location.assign("login.html");
+});
+
+blogTitle[0].addEventListener("click",function(){
+   window.location.assign("index.html");
 });
 
 function loadPosts()
@@ -81,12 +88,9 @@ function generatePost(postData)
 function processTextContent(contentText,postContent)
 {
     var separatedContent = postContent.split("<br>");
-    var newPre = document.createElement("pre");
-    newPre.className = "line-numbers";
-    var newCodeBlock = document.createElement("code");
-    newPre.appendChild(newCodeBlock);
+    var codestorage = "";
     var insertedHead = false;
-    for(var i =0;i<separatedContent.length;i++)
+    for(let i =0;i<separatedContent.length;i++)
     {
         if(i > 0)
         {
@@ -95,7 +99,7 @@ function processTextContent(contentText,postContent)
                 if(separatedContent[i-1].trim() == "" && separatedContent[i].search("    ") == 0)
                 {
                     insertedHead = true;
-                    newCodeBlock.innerHTML += separatedContent[i] + "<br>";
+                    codestorage += separatedContent[i] + "<br>";
                 }else
                 {
                     contentText.innerHTML += separatedContent[i] + "<br>";
@@ -104,11 +108,25 @@ function processTextContent(contentText,postContent)
             {
                 if(separatedContent[i].trim() == "" || separatedContent[i].search("    ") == 0)
                 {
-                    newCodeBlock.innerHTML += separatedContent[i] + "<br>";
+                    codestorage += separatedContent[i] + "<br>";
                 }else
                 {
-                    contentText.innerHTML += "<pre>"+newPre.innerHTML+"</pre><br>" + separatedContent[i] + "<br>";
-                    newCodeBlock.innerHTML = "";
+                    var newPre = document.createElement("pre");
+                    var buttonBar = document.createElement("div");
+                    buttonBar.className = "buttonbar";
+                    var copyButton = document.createElement("button");
+                    var copyButtonImage = document.createElement("img");
+                    copyButtonImage.src = copyImage;
+                    copyButton.appendChild(copyButtonImage);
+                    newPre.appendChild(buttonBar);
+                    buttonBar.appendChild(copyButton);
+                    var newCodeBlock = document.createElement("code");
+                    newPre.appendChild(newCodeBlock);
+                    newCodeBlock.innerHTML = codestorage;
+                    copyButton.addEventListener("click",copyCodeBlockText(newCodeBlock.innerHTML));
+                    codestorage = "";
+                    contentText.appendChild(newPre);
+                    contentText.innerHTML += separatedContent[i] + "<br>";
                     insertedHead = false;
                 }
             }
@@ -124,6 +142,11 @@ function processTextContent(contentText,postContent)
         newCodeBlock.innerHTML = "";
         insertedHead = false;
     }
+}
+
+function copyCodeBlockText(codeBlockText){
+    var convertedText = codeBlockText.replace(/<br\s*[\/]?>/gi, "\n");
+    navigator.clipboard.writeText(convertedText);
 }
 
 function loadEmptyPost(){

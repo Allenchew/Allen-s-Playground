@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "firebase": "^9.8.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "svg-url-loader": "^7.1.1"
   },
   "name": "allenchew's-playground-project",
   "version": "1.0.0",
