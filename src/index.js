@@ -2,6 +2,8 @@ import _ from 'lodash';
 import './index.css';
 import {InitializeConfigApp} from "./importFirebase.js";
 import profilePicture from "./profile.jpg";
+import emailLogo from "./asset/mail-fill.png";
+import githubLogo from "./asset/github-fill.png";
 
 var app;
 
@@ -20,6 +22,8 @@ var profileButton = document.getElementById("profile");
 var portfolioButton = document.getElementById("portfolio");
 var developerBlogButton = document.getElementById("developerblog");
 var contactButton = document.getElementById("contact");
+var emailButton = document.getElementById("email");
+var githubButton = document.getElementById("github");
 
 var footer = document.getElementsByClassName("footer");
 var leftSpacebar = document.getElementsByClassName("leftspacebar");
@@ -27,6 +31,9 @@ var rightSidebar = document.getElementsByClassName("rightsidebar");
 
 var nameText = "Allen Chew";
 var nameTextIndex = 0;
+
+emailButton.src = emailLogo;
+githubButton.src = githubLogo;
 
 profileButton.addEventListener("click",function(){
   console.log("clicked");
