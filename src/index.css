@@ -69,6 +69,20 @@
     cursor:pointer;
 }
 
+.menutext{
+    font-size:2vw;
+    font-family: Garamond;
+    display: inline-block;
+}
+
+@-webkit-keyframes vibrate{
+    0% { -webkit-transform: rotate(-5deg);}
+    25% { -webkit-transform: rotate(5deg);}
+    50% { -webkit-transform: rotate(-5deg);}
+    75% { -webkit-transform: rotate(5deg);}
+    100% { -webkit-transform: rotate(-5deg);}
+}
+
 #profile{
     margin-top:45vh;
 }

@@ -41,6 +41,24 @@ profileButton.addEventListener("click",function(){
   rightSidebar[0].classList.toggle("shrink");
 });
 
+profileButton.addEventListener("onmouseenter",function(){
+    var children = Array.from(profileButton.children);
+    children.forEach(startAnimation);
+});
+
+profileButton.addEventListener("onmouseleave",function(){
+     var children = Array.from(profileButton.children);
+    children.forEach(stopAnimation);
+});
+
+function startAnimation(item){
+    item.style.animation = "vibrate 0.2s infinite";
+}
+
+function stopAnimation(item){
+    item.style.animation = "";
+}
+
 portfolioButton.addEventListener("click",function(){
     
 });
@@ -48,11 +66,6 @@ portfolioButton.addEventListener("click",function(){
 developerBlogButton.addEventListener("click",function(){
   window.location.assign("developerblog.html");
 });
-
-contactButton.addEventListener("click",function(){
-    footer[0].classList.toggle("shrink");
-});
-
 
 function typeText()
 {
@@ -77,6 +90,5 @@ function showMenu()
 
 /*function comingSoonAnimation(paragraph){
     var getText = paragraph.innerHTML;
-    
 }*/
 
