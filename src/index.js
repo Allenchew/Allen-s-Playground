@@ -39,17 +39,44 @@ profileButton.addEventListener("click",function(){
   console.log("clicked");
   leftSpacebar[0].classList.toggle("shrink");
   rightSidebar[0].classList.toggle("shrink");
+  var children = Array.from(profileButton.children);
+  children.forEach(startExplode);
 });
 
-profileButton.addEventListener("onmouseenter",function(){
-    var children = Array.from(profileButton.children);
+profileButton.addEventListener("mouseenter",function(){
+    /*var children = Array.from(profileButton.children);
+    children.forEach(startAnimation);*/
+});
+
+profileButton.addEventListener("mouseleave",function(){
+     /*var children = Array.from(profileButton.children);
+    children.forEach(stopAnimation);*/
+});
+
+developerBlogButton.addEventListener("mouseenter",function(){
+    var children = Array.from(developerBlogButton.children);
     children.forEach(startAnimation);
 });
 
-profileButton.addEventListener("onmouseleave",function(){
-     var children = Array.from(profileButton.children);
+developerBlogButton.addEventListener("mouseleave",function(){
+     var children = Array.from(developerBlogButton.children);
     children.forEach(stopAnimation);
 });
+
+portfolioButton.addEventListener("mouseenter",function(){
+    var children = Array.from(portfolioButton.children);
+    children.forEach(startAnimation);
+});
+
+portfolioButton.addEventListener("mouseleave",function(){
+     var children = Array.from(portfolioButton.children);
+    children.forEach(stopAnimation);
+});
+
+function startExplode(item){
+    var explodeType = Math.floor(Math.random() * 5);
+    item.style.animation = "explode"+explodeType.toString()+" 1s ease-in forwards";
+}
 
 function startAnimation(item){
     item.style.animation = "vibrate 0.2s infinite";
